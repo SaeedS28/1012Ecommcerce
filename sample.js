@@ -168,8 +168,8 @@ function access(query, callback)
   acallback = callback;
   ajax = new XMLHttpRequest();
   ajax.onreadystatechange = ajaxProcess;
-  ajax.open("GET", "http://192.168.1.100:8000/sql?query=" + query);
-  ajax.send(null);
+  ajax.open("GET", "http://10.24.220.156:8000/sql?query=" + query);//change to your ip
+  ajax.send(null) //then go to this http://10.24.220.156:8000/serve/db2/
 }
 
 function ajaxProcess()
