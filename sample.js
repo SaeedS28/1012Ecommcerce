@@ -1,4 +1,5 @@
 var bought=19.99;
+var times=1;
 function updateCallBack(json)
 {
   alert(JSON.stringify(json));
@@ -22,7 +23,8 @@ function purchase(price)
 {
 //select price,album,number,id from collection where id=" +id, purchaseCallback
     alert(bought);
-    bought+= bought-2;
+    bought= bought*times-2*(times-1);
+    times++;
     access("select price, album, number, id from collection where id=" + id,
         purchaseCallBack);
 }
