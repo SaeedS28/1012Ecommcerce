@@ -1,9 +1,12 @@
 var bought=19.99;
-var times=1;
+var total=0;
+
 function updateCallBack(json)
 {
   alert(JSON.stringify(json));
+
 }
+
 function purchaseCallBack(json)
 {
   alert(JSON.stringify(json));
@@ -19,12 +22,13 @@ function purchaseCallBack(json)
   }
 }
 
-function purchase(price)
+function purchase(id)
 {
 //select price,album,number,id from collection where id=" +id, purchaseCallback
-    alert(bought);
-    bought= bought*times-2*(times-1);
-    times++;
+
+    total+=bought;
+//    times++;
+    alert(total);
     access("select price, album, number, id from collection where id=" + id,
         purchaseCallBack);
 }
@@ -172,7 +176,7 @@ function access(query, callback)
   acallback = callback;
   ajax = new XMLHttpRequest();
   ajax.onreadystatechange = ajaxProcess;
-  ajax.open("GET", "http://10.24.220.156:8000/sql?query=" + query);//change to your ip
+  ajax.open("GET", "http://192.168.1.101:8000/sql?query=" + query);//change to your ip
   ajax.send(null) //then go to this http://10.24.220.156:8000/serve/db2/
 }
 
